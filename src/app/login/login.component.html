@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <br><br><br><br><br><br><br>
+       <div class="login">
+            <h1>Student Login</h1>
+            <form [formGroup]="form" >
+
+                <p for="userid">User ID</p>
+                <input type="text" placeholder="Enter User ID" formControlName="userid">
+                <div *ngIf="f['userid'].touched && f['userid'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['userid'].errors && f['userid'].errors['required']">Userid is required.</div>
+                </div>
+
+                <p for="pass">Password</p>
+                <input type="password" placeholder="Enter Password" formControlName="pass">
+                <div *ngIf="f['pass'].touched && f['pass'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['pass'].errors && f['pass'].errors['required']">password is required.</div>
+                     <div *ngIf="f['pass'].errors && f['pass'].errors['pattern']">Password length should be atleast 8<br> and contains atleast one uppercase,one lowercase,one numeric value<br>one special character.</div> 
+                </div>
+
+                <button type="submit" routerLink="/logindash">Login</button>
+
+                
+                <h3>First Time User?<a routerLink="/register">Sign Up</a></h3><br>
+
+                <h3><a routerLink="">forget Password?</a></h3><br>
+            </form>
+       </div>
+    </body>
+</html>
